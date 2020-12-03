@@ -53,4 +53,4 @@ VALUES (1, 'Boné vermelho com simbolo da Ferrari', 'CTC', '-'),
 (5, 'Blusa de moletom azul da marca Vida Marinha', 'CTC', '-'),
 (6, 'Livro 1984 de George Orwell', 'CFH', '-'),
 (7, 'Telefone celular da Samsung', 'CCS', '-'),
-(7, 'Estetoscópio LITTMANN 3M', 'CCS', '-');
+(8, 'Estetoscópio LITTMANN 3M', 'CCS', '-');
