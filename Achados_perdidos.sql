@@ -2,7 +2,7 @@ CREATE TABLE Setores
 (
     codigo int,
     nome_centro varchar(40) NOT NULL,
-    PRIMARY KEY (codigo),
+    PRIMARY KEY (codigo)
 );
 
 
@@ -10,9 +10,9 @@ CREATE TABLE Funcionarios
 (
     CPF numeric(11),
     nome varchar(40) NOT NULL,
-    setor int NOT NULL
+    setor int NOT NULL,
     funcao varchar check ( funcao in ('gerente', 'auxiliar')),
-    PRIMARY KEY (CPF)
+    PRIMARY KEY (CPF),
     FOREIGN KEY (setor) REFERENCES Setores
 );
 
@@ -22,8 +22,8 @@ CREATE TABLE Objetos
     descricao varchar(40) NOT NULL,
     setor varchar(40) NOT NULL,
     categoria int NOT NULL,
-    PRIMARY KEY (codigo)
-    FOREIGN KEY (categoria) REFERENCES Categorias
+    PRIMARY KEY (codigo),
+    FOREIGN KEY (categoria) REFERENCES Categorias,
     FOREIGN KEY (setor) REFERENCES Setores
 );
 
@@ -34,15 +34,15 @@ CREATE TABLE Categorias
     PRIMARY KEY (codigo)
 );
 
-insert into Funcionarios(cpf, nome, funcao)
-VALUES (56108849266, 'Kauan Lima Araujo', 'gerente', 1),
-(23979180050, 'Maria Almeida Rodrigues', 'auxiliar', 1),
-(94903499847, 'Lavinia Lima Almeida', 'auxiliar', 3),
-(60617592152, 'Cauã Lima Silva', 'auxiliar', 1),
-(90145954765, 'Melissa Rodrigues Goncalves', 'gerente', 2),
-(65542079024, 'Carlos Cunha Santos', 'auxiliar', 2),
-(53531125125, 'Luan Correia Goncalves', 'auxiliar', 3),
-(40263847055, 'Nicolas Almeida Lima', 'gerente', 3);
+insert into Funcionarios(cpf, nome, setor, funcao)
+VALUES (56108849266, 'Kauan Lima Araujo',1, 'gerente'),
+(23979180050, 'Maria Almeida Rodrigues', 1,'auxiliar'),
+(94903499847, 'Lavinia Lima Almeida', 3,'auxiliar'),
+(60617592152, 'Cauã Lima Silva', 1,'auxiliar'),
+(90145954765, 'Melissa Rodrigues Goncalves',2, 'gerente'),
+(65542079024, 'Carlos Cunha Santos', 2,'auxiliar'),
+(53531125125, 'Luan Correia Goncalves', 3,'auxiliar'),
+(40263847055, 'Nicolas Almeida Lima',3, 'gerente');
 
 insert into Objetos(codigo, descricao, setor, categoria)
 VALUES (1, 'Boné vermelho com simbolo da Ferrari', 1, 2),
@@ -63,5 +63,5 @@ VALUES (1, 'Eletrônicos'),
 
 insert into Setores(codigo, nome_centro)
 VALUES (1, 'CTC'),
-(2 'CFH'),
+(2,'CFH'),
 (3, 'CCS');
